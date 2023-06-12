@@ -2,6 +2,7 @@ const path = require('path');
 const hbs = require('hbs');
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000
 const publicDirectory = path.join(__dirname, '../public');
 app.set('view engine', 'hbs');
 app.use(express.static(publicDirectory));
@@ -45,6 +46,6 @@ app.get('*', (req, res) => {
         name: 'Not Found'
     })
 })
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('listening on 3000');
 });
